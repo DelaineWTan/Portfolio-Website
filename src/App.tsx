@@ -13,12 +13,14 @@ import { ProjectsSection } from './components/ProjectsSection'
 
 function App() {
   return (
-    <>
-      <SkillsSection items={skillGroups} />
-      <ExperienceSection items={experienceItems} />
-      <EducationSection items={educationItems} />
-      <ProjectsSection items={projectItems} gameJams={gameJamItems} />
-    </>
+    <div className="app-shell">
+      <main className="page-content">
+        <SkillsSection items={skillGroups} />
+        <ExperienceSection items={experienceItems} />
+        <EducationSection items={educationItems} />
+        <ProjectsSection items={projectItems} gameJams={gameJamItems} />
+      </main>
+    </div>
   )
 }
 
