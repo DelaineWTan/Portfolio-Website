@@ -38,7 +38,7 @@ export function Header() {
                 <h1>Delaine Tan</h1>
                 <p className="site-title">Game &amp; Software Engineer</p>
                 <p className="site-summary">
-                    Software engineer focused on game systems, backend infrastructure, and gameplay architecture.
+                    Versatile software engineer spanning frontend, backend, and game development, with a strong eye for detail, systems thinking, and a track record of building effective relationships across teams.
                 </p>
 
                 <div id="social">
