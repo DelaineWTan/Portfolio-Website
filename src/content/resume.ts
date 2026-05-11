@@ -28,15 +28,15 @@ export type EducationItem = {
 export const skillGroups: SkillGroup[] = [
     {
         title: 'Programming Languages',
-        items: ['C++', 'C', 'Python', 'JavaScript', 'C#', 'Swift', 'HTML5', 'CSS', 'Java', 'SQL', 'Bash'],
+        items: ['C++', 'C#', 'C', 'Python', 'JavaScript', 'TypeScript', 'HTML5', 'CSS', 'Java', 'SQL', 'Bash', 'Swift', 'GDScript'],
     },
     {
         title: 'Development Tools',
-        items: ['Raylib', 'SDL3', 'Unity', 'XCode', 'Node.js', 'Express', 'React', 'Redux', 'Git', 'Ansible', 'Jira', 'Confluence'],
+        items: ['React', 'Redux', 'Git', 'Node.js', 'Express', 'UnityEngine', 'Godot', 'Raylib', 'SDL3', 'XCode', 'Perforce', 'Ansible', 'Jira', 'Confluence', 'Trello'],
     },
     {
         title: 'Data Storage & Infrastructure',
-        items: ['PostgreSQL', 'MySQL', 'AWS S3', 'CEPH S3', 'DynamoDB', 'Firestore', 'MongoDB', 'Kafka', 'Clickhouse'],
+        items: ['PostgreSQL', 'MySQL', 'AWS S3', 'CEPH S3', 'DynamoDB', 'Firestore', 'MongoDB', 'Kafka', 'Clickhouse', 'Spark', 'Kubernetes', 'Docker', 'Vector'],
     },
     {
         title: 'Workflow and Methodologies',

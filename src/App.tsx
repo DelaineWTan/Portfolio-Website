@@ -19,8 +19,8 @@ function App() {
         <Header/>
         <SkillsSection items={skillGroups} />
         <ExperienceSection items={experienceItems} />
-        <EducationSection items={educationItems} />
         <ProjectsSection items={projectItems} gameJams={gameJamItems} />
+        <EducationSection items={educationItems} />
       </main>
     </div>
   )
