@@ -1,8 +1,11 @@
+import { MusicToggle } from './MusicToggle'
 import { useEffect, useState } from 'react'
 
 type CityStatusProps = {
     value: 'Vancouver'
+    musicToggle?: React.ReactNode
 }
+
 
 type CityWeather = {
     time: string
@@ -40,7 +43,7 @@ function weatherCodeToIcon(code: number): string {
     return '•'
 }
 
-export function CityStatus({ value }: CityStatusProps) {
+export function CityStatus({ value, musicToggle }: CityStatusProps) {
     const [weather, setWeather] = useState<CityWeather>({
         time: '',
         temp: '--',
@@ -121,8 +124,14 @@ export function CityStatus({ value }: CityStatusProps) {
 
     return (
         <section className="city-status" aria-label={`${value} status`}>
-            <p className="city-status__kicker">Based in</p>
-            <h2 className="city-status__city">{value}, BC</h2>
+            <div className="city-status__top">
+                <div>
+                    <p className="city-status__kicker">Based in</p>
+                    <h2 className="city-status__city">{value}, BC</h2>
+                </div>
+
+                {musicToggle}
+            </div>
 
             <div className="city-status__row">
                 <span className="city-status__time">{weather.time}</span>

@@ -233,6 +233,24 @@
   line-height: 1;
 }
 
+.city-status__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.music-toggle--compact {
+  min-height: 36px;
+  min-width: 36px;
+  padding: 8px;
+  border-radius: 999px;
+}
+
+.music-toggle--compact .music-toggle__icon {
+  font-size: 12px;
+}
+
 #social {
   margin-top: 32px;
 }
