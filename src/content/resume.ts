@@ -118,8 +118,9 @@ export const projectItems: ProjectItem[] = [
         company: 'Intro to Computer Games Development (BCIT)',
         link: 'https://delainetan.itch.io/immunity-reborn',
         description: [
-            'Developed enemy AI, wave spawning, and level design for a 3D survival action RPG in Unity.',
-            'Handled SFX/VFX, music, and balance systems.',
+            'Engineered core gameplay systems for a 3D survival action RPG in Unity, including enemy AI, wave spawning, progression, and combat balance.',
+            'Designed and balanced 5 levels across multiple difficulties, with each level tied to its own background music and scripted enemy spawn sequence.',
+            'Handled level design, game balance, and the full audio/feedback pass, including SFX, VFX, and music integration.',
         ],
     },
 ]
