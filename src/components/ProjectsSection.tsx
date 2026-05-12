@@ -1,70 +1,111 @@
+import { useMemo, useState } from 'react'
 import { SectionShell } from './SectionShell'
-import type { ProjectItem } from '../content/resume'
+import type { ProjectItem, ProjectTag } from '../content/resume'
 
-type Props = {
-    items: ProjectItem[]
-    gameJams: {
-        name: string
-        event: string
-        engine: string
-        summary: string
-    }[]
+const FILTERS: { key: ProjectTag; label: string }[] = [
+  { key: 'game-jam', label: 'Game Jam' },
+  { key: 'playable-web', label: 'Playable on Web' },
+  { key: 'unity', label: 'Unity' },
+  { key: 'godot', label: 'Godot' },
+  { key: 'custom-engine', label: 'Custom Engine' },
+]
+
+const TAG_LABELS: Record<ProjectTag, string> = {
+  'game-jam': 'Game Jam',
+  'playable-web': 'Playable on Web',
+  unity: 'Unity',
+  godot: 'Godot',
+  'custom-engine': 'Custom Engine',
+  cpp: 'C++',
+  raylib: 'Raylib',
+  sdl3: 'SDL3',
+  solo: 'Solo',
+  team: 'Team',
 }
 
-export function ProjectsSection({ items, gameJams }: Props) {
-    return (
-        <SectionShell
-            id="projects"
-            title="Projects"
-            intro="Selected game development work across capstone, course, and jam projects."
-        >
-            <div className="project-list">
-                {items.map((item) => (
-                    <article key={item.name}>
-                        <div className="project-heading">
-                            <div>
-                                <h3>{item.name}</h3>
-                                <p className="project-meta-line">
-                                    {item.dates} · {item.company}
-                                </p>
-                            </div>
-                        </div>
+type Props = {
+  items: ProjectItem[]
+}
 
-                        {item.description.map((line) => (
-                            <p key={line}>{line}</p>
-                        ))}
+export function ProjectsSection({ items }: Props) {
+  const [activeTags, setActiveTags] = useState<ProjectTag[]>([])
 
-                        <p>
-                            <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                Play on itch.io
-                            </a>
-                        </p>
-                    </article>
-                ))}
-
-                <article>
-                    <div className="project-heading">
-                        <div>
-                            <h3>Recent Game Jams</h3>
-                            <p className="project-meta-line">2024 — Present · Itch.io</p>
-                        </div>
-                    </div>
-
-                    <ul className="jam-list">
-                        {gameJams.map((jam) => (
-                            <li key={jam.name}>
-                                <strong>{jam.name}</strong>: {jam.event}, {jam.engine}. {jam.summary}
-                            </li>
-                        ))}
-                    </ul>
-
-                    <p>
-                        <a href="https://delainetan.itch.io/" target="_blank" rel="noopener noreferrer">
-                            Browse all games
-                        </a>
-                    </p>
-                </article>
-            </div>
-        </SectionShell>
+  const toggleTag = (tag: ProjectTag) => {
+    setActiveTags((current) =>
+      current.includes(tag)
+        ? current.filter((t) => t !== tag)
+        : [...current, tag]
     )
+  }
+
+  const filteredItems = useMemo(() => {
+    if (activeTags.length === 0) return items
+    return items.filter((item) =>
+      activeTags.every((tag) => item.tags.includes(tag))
+    )
+  }, [items, activeTags])
+
+  return (
+    <SectionShell
+      id="projects"
+      title="Projects"
+      intro="Selected game development work across capstone, course, and jam projects."
+    >
+      <div className="project-filters" role="group" aria-label="Project filters">
+        {FILTERS.map((filter) => {
+          const active = activeTags.includes(filter.key)
+          return (
+            <button
+              key={filter.key}
+              type="button"
+              className={active ? 'filter-chip active' : 'filter-chip'}
+              onClick={() => toggleTag(filter.key)}
+              aria-pressed={active}
+            >
+              {filter.label}
+            </button>
+          )
+        })}
+      </div>
+
+      <div className="project-list">
+        {filteredItems.length === 0 ? (
+          <p>No projects match the selected filters.</p>
+        ) : (
+          filteredItems.map((item) => (
+            <article key={item.name}>
+              <div className="project-heading">
+                <div>
+                  <h3>{item.name}</h3>
+                  <p className="project-meta-line">
+                    {item.dates} · {item.company}
+                  </p>
+                </div>
+              </div>
+
+              <div className="project-tag-row">
+                {item.tags.map((tag) => (
+                  <span key={tag} className="project-tag">
+                    {TAG_LABELS[tag]}
+                  </span>
+                ))}
+              </div>
+
+              {item.description.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+
+              {item.link && (
+                <p>
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    {item.linkLabel ?? 'View project'}
+                  </a>
+                </p>
+              )}
+            </article>
+          ))
+        )}
+      </div>
+    </SectionShell>
+  )
 }

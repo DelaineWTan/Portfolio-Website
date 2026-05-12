@@ -3,8 +3,7 @@ import {
   skillGroups,
   experienceItems,
   educationItems,
-  projectItems,
-  gameJamItems,
+  projectItems
 } from './content/resume'
 import { Header } from './components/Header'
 import { SkillsSection } from './components/SkillsSection'
@@ -19,7 +18,7 @@ function App() {
         <Header/>
         <SkillsSection items={skillGroups} />
         <ExperienceSection items={experienceItems} />
-        <ProjectsSection items={projectItems} gameJams={gameJamItems} />
+        <ProjectsSection items={projectItems} />
         <EducationSection items={educationItems} />
       </main>
     </div>

@@ -10,12 +10,26 @@ export type ExperienceItem = {
     bullets: string[]
 }
 
+export type ProjectTag =
+    | 'game-jam'
+    | 'playable-web'
+    | 'unity'
+    | 'godot'
+    | 'custom-engine'
+    | 'cpp'
+    | 'raylib'
+    | 'sdl3'
+    | 'solo'
+    | 'team'
+
 export type ProjectItem = {
     name: string
     dates: string
     company: string
-    link: string
+    link?: string
+    linkLabel?: string
     description: string[]
+    tags: ProjectTag[]
 }
 
 export type EducationItem = {
@@ -97,57 +111,64 @@ export const projectItems: ProjectItem[] = [
         dates: 'Sep 2025 — Present',
         company: 'Capstone Project',
         link: 'https://delainetan.itch.io/syrup-saga',
+        linkLabel: 'Play on itch.io',
         description: [
             'Ongoing capstone project with regular updates. Solo-developed adventure RPG on a custom C++17 (Raylib) ECS engine including rendering, physics, collision, combat, AI, and UI systems built from scratch.',
             'Features procedural map graph generation, state machine-driven enemy and companion AI, combo-based combat, and a data-driven JSON entity pipeline.',
         ],
+        tags: ['custom-engine', 'cpp', 'raylib', 'solo'],
     },
     {
         name: 'Last Harvest',
         dates: 'Sep — Dec 2025',
         company: 'Advanced Games Architecture Course (BCIT)',
         link: 'https://delainetan.itch.io/last-harvest',
+        linkLabel: 'Play on itch.io',
         description: [
             'Co-developed a 2D isometric base defense RTS in C++20 and SDL3 with a 3-person team on a custom ECS engine.',
             'Owned UI, scene management, resource management, and a placement system refactor that eliminated mode-switching crashes.',
         ],
+        tags: ['custom-engine', 'cpp', 'sdl3', 'team'],
     },
     {
         name: 'Immunity Reborn',
         dates: 'Sep — Dec 2023',
         company: 'Intro to Computer Games Development (BCIT)',
         link: 'https://delainetan.itch.io/immunity-reborn',
+        linkLabel: 'Play on itch.io',
         description: [
             'Engineered core gameplay systems for a 3D survival action RPG in Unity, including enemy AI, wave spawning, progression, and combat balance.',
             'Designed and balanced 5 levels across multiple difficulties, with each level tied to its own background music and scripted enemy spawn sequence.',
             'Handled level design, game balance, and the full audio/feedback pass, including SFX, VFX, and music integration.',
         ],
+        tags: ['unity', 'team', 'playable-web'],
     },
-]
-
-export const gameJamItems = [
     {
         name: 'Ori and the Blue Ocean',
-        event: 'Gone Fishing Game Jam 2026',
-        engine: 'Godot Engine',
-        summary: '2D fishing game; worked on sound and gameplay systems.',
+        dates: '2026',
+        company: 'Gone Fishing Game Jam 2026',
+        description: ['2D fishing game; worked on sound and gameplay systems.'],
+        tags: ['game-jam', 'godot', 'team', 'playable-web'],
     },
     {
         name: 'Sloshed Simian',
-        event: 'Global Game Jam 2026',
-        engine: 'Unity',
-        summary: 'Top-down adventure game; sole programmer plus game designer.',
+        dates: '2026',
+        company: 'Global Game Jam 2026',
+        description: ['Top-down adventure game; sole programmer plus game designer.'],
+        tags: ['game-jam', 'unity', 'solo', 'playable-web'],
     },
     {
         name: 'BattleGhoti',
-        event: 'Global Game Jam 2025',
-        engine: 'Unity',
-        summary: 'Fishing gacha battler with collection gallery and tug-of-war battles; game designer, systems architecture, and gameplay balance.',
+        dates: '2025',
+        company: 'Global Game Jam 2025',
+        description: ['Fishing gacha battler with collection gallery and tug-of-war battles; game designer, systems architecture, and gameplay balance.'],
+        tags: ['game-jam', 'unity', 'team', 'playable-web'],
     },
     {
         name: 'Hakuna Banana',
-        event: 'Global Game Jam 2024',
-        engine: 'Unity',
-        summary: 'Humorous 2D turn-based platformer; implemented state machine, turn manager, and gameplay polish.',
+        dates: '2024',
+        company: 'Global Game Jam 2024',
+        description: ['Humorous 2D turn-based platformer; implemented state machine, turn manager, and gameplay polish.'],
+        tags: ['game-jam', 'unity', 'team', 'playable-web'],
     },
 ]
