@@ -1,32 +1,32 @@
 import { CityStatus } from './CityStatus'
-import { MusicToggle } from './MusicToggle'
-import { useEffect, useRef, useState } from 'react'
+// import { MusicToggle } from './MusicToggle'
+import { useEffect, useRef } from 'react'
 
 export function Header() {
     const audioRef = useRef<HTMLAudioElement | null>(null)
-    const [isPlaying, setIsPlaying] = useState(false)
+    // const [isPlaying, setIsPlaying] = useState(false)
 
     useEffect(() => {
         if (!audioRef.current) return
         audioRef.current.volume = 0.35
     }, [])
 
-    const handleMusicToggle = async () => {
-        const audio = audioRef.current
-        if (!audio) return
+    // const handleMusicToggle = async () => {
+    //     const audio = audioRef.current
+    //     if (!audio) return
 
-        try {
-            if (audio.paused) {
-                await audio.play()
-                setIsPlaying(true)
-            } else {
-                audio.pause()
-                setIsPlaying(false)
-            }
-        } catch (error) {
-            console.error('Audio playback failed:', error)
-        }
-    }
+    //     try {
+    //         if (audio.paused) {
+    //             await audio.play()
+    //             setIsPlaying(true)
+    //         } else {
+    //             audio.pause()
+    //             setIsPlaying(false)
+    //         }
+    //     } catch (error) {
+    //         console.error('Audio playback failed:', error)
+    //     }
+    // }
 
     return (
         <header className="section-shell site-header">
@@ -82,13 +82,13 @@ export function Header() {
             <aside className="site-header__status">
                 <CityStatus
                     value="Vancouver"
-                    musicToggle={
-                        <MusicToggle
-                            compact
-                            isPlaying={isPlaying}
-                            onToggle={handleMusicToggle}
-                        />
-                    }
+                    // musicToggle={
+                    //     <MusicToggle
+                    //         compact
+                    //         isPlaying={isPlaying}
+                    //         onToggle={handleMusicToggle}
+                    //     />
+                    // }
                 />
             </aside>
         </header>

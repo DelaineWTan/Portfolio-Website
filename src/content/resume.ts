@@ -149,7 +149,7 @@ export const projectItems: ProjectItem[] = [
             'Designed and balanced 5 levels across multiple difficulties, with each level tied to its own background music and scripted enemy spawn sequence.',
             'Handled level design, game balance, and the full audio/feedback pass, including SFX, VFX, and music integration.',
         ],
-        tags: ['unity', 'team', 'playable-web'],
+        tags: ['unity', 'team'],
     },
     {
         name: 'Ori and the Blue Ocean',
