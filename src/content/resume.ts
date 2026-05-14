@@ -8,6 +8,8 @@ export type ExperienceItem = {
     company: string
     dates: string
     bullets: string[]
+    logo?: string
+    logoAlt?: string
 }
 
 export type ProjectTag =
@@ -63,6 +65,8 @@ export const experienceItems: ExperienceItem[] = [
         title: 'Software Engineer (Co-op)',
         company: 'Netskrt Systems Inc.',
         dates: 'Sep 2024 — Aug 2025',
+        logo: '/images/logos/netskrt.png',
+        logoAlt: 'Netskrt Systems logo',
         bullets: [
             'Developed backend systems for CDN infrastructure using Python, Ansible, and Vector.',
             'Automated ops tasks with Bash scripts and TMUX, with comprehensive documentation for reproducibility.',
@@ -73,6 +77,8 @@ export const experienceItems: ExperienceItem[] = [
         title: 'Project Evaluator',
         company: 'Lighthouse Labs',
         dates: 'Sep 2019 — Apr 2020',
+        logo: '/images/logos/lighthouse.png',
+        logoAlt: 'Lighthouse Labs logo',
         bullets: [
             'Evaluated project submissions designed to teach students web development fundamentals (JavaScript, CSS, HTML5) and popular web development frameworks (i.e React, Redux, Express).',
             'Invested in student success and provided thorough feedback and supporting resources.',
@@ -82,6 +88,8 @@ export const experienceItems: ExperienceItem[] = [
         title: 'Software Engineer',
         company: 'Rival Technologies',
         dates: 'Sep 2018 — Dec 2019',
+        logo: '/images/logos/rivaltech.png',
+        logoAlt: 'Rival Technologies logo',
         bullets: [
             'Used React, Redux, Express, and SQL to maintain an enterprise market research web app.',
             'Worked flexibly, learning the basics of countless technologies along the way, establishing a reputation for adaptability and persistence.',
