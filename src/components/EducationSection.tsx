@@ -16,10 +16,21 @@ export function EducationSection({ items }: Props) {
                 {items.map((item) => (
                     <article key={`${item.company}-${item.qualification}`}>
                         <div className="education-heading">
-                            <div>
-                                <h3>{item.company}</h3>
-                                <p className="education-qualification">{item.qualification}</p>
+                            <div className="education-copy">
+                                <p className="education-degree">
+                                    {item.link ? (
+                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                            {item.qualification}
+                                        </a>
+                                    ) : (
+                                        item.qualification
+                                    )}
+                                    {item.honours && <span className="education-honours-inline">, {item.honours}</span>}
+                                </p>
+
+                                <h3 className="education-institution">{item.company}</h3>
                             </div>
+
                             <p className="education-meta">{item.dates}</p>
                         </div>
                         <p>{item.description}</p>

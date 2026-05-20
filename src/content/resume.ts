@@ -38,7 +38,9 @@ export type EducationItem = {
     company: string
     dates: string
     qualification: string
+    honours?: string
     description: string
+    link?: string
 }
 
 export const skillGroups: SkillGroup[] = [
@@ -103,13 +105,19 @@ export const educationItems: EducationItem[] = [
         company: 'British Columbia Institute of Technology',
         dates: 'Sep 2023 — Apr 2026',
         qualification: 'BSc in Applied Computer Science - Game Development Option',
-        description: 'Learned game design, game development, higher-level mathematics, physics, advanced computing skills and theoretical knowledge.',
+        honours: 'With Distinction',
+        description:
+            'Studied game development through advanced software engineering, mathematics, physics, graphics, and systems-focused computing, with hands-on experience building interactive applications and game projects.',
+        link: 'https://www.bcit.ca/programs/applied-computer-science-games-development-option-bachelor-of-science-full-time-867absc/',
     },
     {
         company: 'British Columbia Institute of Technology',
         dates: 'Sep 2021 — Apr 2023',
         qualification: 'Computer Systems Technology Diploma',
-        description: 'Learned computer systems theory, with hands-on practical experience in software development.',
+        honours: 'With Distinction',
+        description:
+            'Built a strong foundation in software development, computer systems, algorithms, databases, networking, and applied programming through intensive project-based coursework.',
+        link: 'https://www.bcit.ca/programs/computer-systems-technology-diploma-full-time-5500dipma/',
     },
 ]
 
