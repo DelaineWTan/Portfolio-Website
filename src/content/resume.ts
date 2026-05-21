@@ -131,6 +131,7 @@ export const projectItems: ProjectItem[] = [
         description: [
             'Ongoing capstone project with regular updates. Solo-developed adventure RPG on a custom C++17 (Raylib) ECS engine including rendering, physics, collision, combat, AI, and UI systems built from scratch.',
             'Features procedural map graph generation, state machine-driven enemy and companion AI, combo-based combat, and a data-driven JSON entity pipeline.',
+            'Playtest key: alphatest'
         ],
         tags: ['custom-engine', 'cpp', 'raylib', 'solo'],
     },
