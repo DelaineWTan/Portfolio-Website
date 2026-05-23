@@ -1,4 +1,5 @@
 import { SectionShell } from './SectionShell'
+import styles from './ExperienceSection.module.css'
 import type { ExperienceItem } from '../content/resume'
 
 type Props = {
@@ -12,30 +13,32 @@ export function ExperienceSection({ items }: Props) {
             title="Experience"
             intro="Professional experience across software engineering, infrastructure, and technical evaluation."
         >
-            <div className="experience-list">
+            <div className={styles.experienceList}>
                 {items.map((item) => (
-                    <article key={`${item.company}-${item.title}`}>
-                        <div className="experience-heading">
-                            <div className="experience-main">
+                    <article key={`${item.company}-${item.title}`} className={styles.card}>
+                        <div className={styles.heading}>
+                            <div className={styles.main}>
                                 {item.logo && (
-                                    <img
-                                        className="experience-logo"
-                                        src={item.logo}
-                                        alt={item.logoAlt ?? `${item.company} logo`}
-                                        loading="lazy"
-                                    />
+                                    <div className={styles.logoWrap}>
+                                        <img
+                                            className={styles.logo}
+                                            src={item.logo}
+                                            alt={item.logoAlt ?? `${item.company} logo`}
+                                            loading="lazy"
+                                        />
+                                    </div>
                                 )}
 
-                                <div className="experience-copy">
-                                    <h3>{item.title}</h3>
-                                    <p className="experience-company">{item.company}</p>
+                                <div className={styles.copy}>
+                                    <h3 className={styles.title}>{item.title}</h3>
+                                    <p className={styles.company}>{item.company}</p>
                                 </div>
                             </div>
 
-                            <p className="experience-meta">{item.dates}</p>
+                            <p className={styles.meta}>{item.dates}</p>
                         </div>
 
-                        <ul>
+                        <ul className={styles.bullets}>
                             {item.bullets.map((bullet) => (
                                 <li key={bullet}>{bullet}</li>
                             ))}

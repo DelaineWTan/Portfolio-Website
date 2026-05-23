@@ -1,4 +1,5 @@
 import { SectionShell } from './SectionShell'
+import styles from './EducationSection.module.css'
 import type { EducationItem } from '../content/resume'
 
 type Props = {
@@ -12,12 +13,12 @@ export function EducationSection({ items }: Props) {
             title="Education"
             intro="Academic background in computer science, game development, and computer systems."
         >
-            <div className="education-list">
+            <div className={styles.educationList}>
                 {items.map((item) => (
-                    <article key={`${item.company}-${item.qualification}`}>
-                        <div className="education-heading">
-                            <div className="education-copy">
-                                <p className="education-degree">
+                    <article key={`${item.company}-${item.qualification}`} className={styles.card}>
+                        <div className={styles.heading}>
+                            <div className={styles.copy}>
+                                <p className={styles.degree}>
                                     {item.link ? (
                                         <a href={item.link} target="_blank" rel="noopener noreferrer">
                                             {item.qualification}
@@ -25,15 +26,18 @@ export function EducationSection({ items }: Props) {
                                     ) : (
                                         item.qualification
                                     )}
-                                    {item.honours && <span className="education-honours-inline">, {item.honours}</span>}
+                                    {item.honours && (
+                                        <span className={styles.honoursInline}>, {item.honours}</span>
+                                    )}
                                 </p>
 
-                                <h3 className="education-institution">{item.company}</h3>
+                                <h3 className={styles.institution}>{item.company}</h3>
                             </div>
 
-                            <p className="education-meta">{item.dates}</p>
+                            <p className={styles.meta}>{item.dates}</p>
                         </div>
-                        <p>{item.description}</p>
+
+                        <p className={styles.description}>{item.description}</p>
                     </article>
                 ))}
             </div>

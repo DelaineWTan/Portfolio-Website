@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { SectionShell } from './SectionShell'
+import styles from './ProjectsSection.module.css'
 import type { ProjectItem, ProjectTag } from '../content/resume'
 
 const FILTERS: { key: ProjectTag; label: string }[] = [
@@ -32,17 +33,13 @@ export function ProjectsSection({ items }: Props) {
 
   const toggleTag = (tag: ProjectTag) => {
     setActiveTags((current) =>
-      current.includes(tag)
-        ? current.filter((t) => t !== tag)
-        : [...current, tag]
+      current.includes(tag) ? current.filter((t) => t !== tag) : [...current, tag]
     )
   }
 
   const filteredItems = useMemo(() => {
     if (activeTags.length === 0) return items
-    return items.filter((item) =>
-      activeTags.every((tag) => item.tags.includes(tag))
-    )
+    return items.filter((item) => activeTags.every((tag) => item.tags.includes(tag)))
   }, [items, activeTags])
 
   return (
@@ -51,14 +48,14 @@ export function ProjectsSection({ items }: Props) {
       title="Projects"
       intro="Selected game development work across capstone, course, and jam projects."
     >
-      <div className="project-filters" role="group" aria-label="Project filters">
+      <div className={styles.projectFilters} role="group" aria-label="Project filters">
         {FILTERS.map((filter) => {
           const active = activeTags.includes(filter.key)
           return (
             <button
               key={filter.key}
               type="button"
-              className={active ? 'filter-chip active' : 'filter-chip'}
+              className={active ? `${styles.filterChip} ${styles.active}` : styles.filterChip}
               onClick={() => toggleTag(filter.key)}
               aria-pressed={active}
             >
@@ -68,36 +65,43 @@ export function ProjectsSection({ items }: Props) {
         })}
       </div>
 
-      <div className="project-list">
+      <div className={styles.projectList}>
         {filteredItems.length === 0 ? (
-          <p>No projects match the selected filters.</p>
+          <p className={styles.emptyState}>No projects match the selected filters.</p>
         ) : (
           filteredItems.map((item) => (
-            <article key={item.name}>
-              <div className="project-heading">
+            <article key={item.name} className={styles.projectCard}>
+              <div className={styles.projectHeading}>
                 <div>
-                  <h3>{item.name}</h3>
-                  <p className="project-meta-line">
+                  <h3 className={styles.projectTitle}>{item.name}</h3>
+                  <p className={styles.projectMetaLine}>
                     {item.dates} · {item.company}
                   </p>
                 </div>
               </div>
 
-              <div className="project-tag-row">
+              <div className={styles.projectTagRow}>
                 {item.tags.map((tag) => (
-                  <span key={tag} className="project-tag">
+                  <span key={tag} className={styles.projectTag}>
                     {TAG_LABELS[tag]}
                   </span>
                 ))}
               </div>
 
               {item.description.map((line) => (
-                <p key={line}>{line}</p>
+                <p key={line} className={styles.projectDescription}>
+                  {line}
+                </p>
               ))}
 
               {item.link && (
-                <p>
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                <p className={styles.projectLinkWrap}>
+                  <a
+                    className={styles.projectLink}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {item.linkLabel ?? 'View project'}
                   </a>
                 </p>
