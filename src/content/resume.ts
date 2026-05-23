@@ -32,6 +32,8 @@ export type ProjectItem = {
     linkLabel?: string
     description: string[]
     tags: ProjectTag[]
+    thumbnail?: string
+    thumbnailAlt?: string
 }
 
 export type EducationItem = {
@@ -134,6 +136,8 @@ export const projectItems: ProjectItem[] = [
             'Playtest key: alphatest'
         ],
         tags: ['custom-engine', 'cpp', 'raylib', 'solo'],
+        thumbnail: '/images/projects/syrup-saga.png',
+        thumbnailAlt: 'SyrupSaga project screenshot',
     },
     {
         name: 'Last Harvest',
@@ -146,6 +150,8 @@ export const projectItems: ProjectItem[] = [
             'Owned UI, scene management, resource management, and a placement system refactor that eliminated mode-switching crashes.',
         ],
         tags: ['custom-engine', 'cpp', 'sdl3', 'team'],
+        thumbnail: '/images/projects/last-harvest.png',
+        thumbnailAlt: 'Last Harvest project screenshot',
     },
     {
         name: 'Immunity Reborn',
@@ -159,6 +165,8 @@ export const projectItems: ProjectItem[] = [
             'Handled level design, game balance, and the full audio/feedback pass, including SFX, VFX, and music integration.',
         ],
         tags: ['unity', 'team'],
+        thumbnail: '/images/projects/immunity-reborn.png',
+        thumbnailAlt: 'Immunity Reborn project screenshot',
     },
     {
         name: 'Ori and the Blue Ocean',
@@ -166,6 +174,8 @@ export const projectItems: ProjectItem[] = [
         company: 'Gone Fishing Game Jam 2026',
         description: ['2D fishing game; worked on sound and gameplay systems.'],
         tags: ['game-jam', 'godot', 'team', 'playable-web'],
+        thumbnail: '/images/projects/ori-and-the-blue-ocean.png',
+        thumbnailAlt: 'Ori and the Blue Ocean project screenshot',
     },
     {
         name: 'Sloshed Simian',
@@ -173,6 +183,8 @@ export const projectItems: ProjectItem[] = [
         company: 'Global Game Jam 2026',
         description: ['Top-down adventure game; sole programmer plus game designer.'],
         tags: ['game-jam', 'unity', 'solo', 'playable-web'],
+        thumbnail: '/images/projects/sloshed-simian.png',
+        thumbnailAlt: 'Sloshed Simian project screenshot',
     },
     {
         name: 'BattleGhoti',
@@ -180,6 +192,8 @@ export const projectItems: ProjectItem[] = [
         company: 'Global Game Jam 2025',
         description: ['Fishing gacha battler with collection gallery and tug-of-war battles; game designer, systems architecture, and gameplay balance.'],
         tags: ['game-jam', 'unity', 'team', 'playable-web'],
+        thumbnail: '/images/projects/battleghoti.png',
+        thumbnailAlt: 'BattleGhoti project screenshot',
     },
     {
         name: 'Hakuna Banana',
@@ -187,5 +201,7 @@ export const projectItems: ProjectItem[] = [
         company: 'Global Game Jam 2024',
         description: ['Humorous 2D turn-based platformer; implemented state machine, turn manager, and gameplay polish.'],
         tags: ['game-jam', 'unity', 'team', 'playable-web'],
+        thumbnail: '/images/projects/hakuna-banana.png',
+        thumbnailAlt: 'Hakuna Banana project screenshot',
     },
 ]

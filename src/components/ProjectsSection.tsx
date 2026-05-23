@@ -71,41 +71,60 @@ export function ProjectsSection({ items }: Props) {
         ) : (
           filteredItems.map((item) => (
             <article key={item.name} className={styles.projectCard}>
-              <div className={styles.projectHeading}>
-                <div>
-                  <h3 className={styles.projectTitle}>{item.name}</h3>
-                  <p className={styles.projectMetaLine}>
-                    {item.dates} · {item.company}
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.projectTagRow}>
-                {item.tags.map((tag) => (
-                  <span key={tag} className={styles.projectTag}>
-                    {TAG_LABELS[tag]}
-                  </span>
-                ))}
-              </div>
-
-              {item.description.map((line) => (
-                <p key={line} className={styles.projectDescription}>
-                  {line}
-                </p>
-              ))}
-
-              {item.link && (
-                <p className={styles.projectLinkWrap}>
-                  <a
-                    className={styles.projectLink}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.linkLabel ?? 'View project'}
-                  </a>
-                </p>
+              {item.thumbnail && (
+                <a
+                  className={styles.thumbnailWrap}
+                  href={item.link ?? '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.linkLabel ?? `${item.name} project link`}
+                >
+                  <img
+                    className={styles.thumbnail}
+                    src={item.thumbnail}
+                    alt={item.thumbnailAlt ?? item.name}
+                    loading="lazy"
+                  />
+                </a>
               )}
+
+              <div className={styles.projectBody}>
+                <div className={styles.projectHeading}>
+                  <div>
+                    <h3 className={styles.projectTitle}>{item.name}</h3>
+                    <p className={styles.projectMetaLine}>
+                      {item.dates} · {item.company}
+                    </p>
+                  </div>
+                </div>
+
+                <div className={styles.projectTagRow}>
+                  {item.tags.map((tag) => (
+                    <span key={tag} className={styles.projectTag}>
+                      {TAG_LABELS[tag]}
+                    </span>
+                  ))}
+                </div>
+
+                {item.description.map((line) => (
+                  <p key={line} className={styles.projectDescription}>
+                    {line}
+                  </p>
+                ))}
+
+                {item.link && (
+                  <p className={styles.projectLinkWrap}>
+                    <a
+                      className={styles.projectLink}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.linkLabel ?? 'View project'}
+                    </a>
+                  </p>
+                )}
+              </div>
             </article>
           ))
         )}
