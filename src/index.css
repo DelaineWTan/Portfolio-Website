@@ -1,18 +1,18 @@
 :root {
-  --text: #aab3c5;
-  --text-h: #f3f7ff;
   --bg: #070b14;
-  --bg-top: #0b1222;
-  --border: rgba(173, 184, 208, 0.14);
-  --code-bg: rgba(255, 255, 255, 0.05);
-  --accent: #c084fc;
-  --accent-bg: rgba(192, 132, 252, 0.12);
-  --accent-border: rgba(192, 132, 252, 0.34);
-  --social-bg: rgba(255, 255, 255, 0.035);
-  --shadow:
-    rgba(0, 0, 0, 0.35) 0 14px 30px -12px,
-    rgba(0, 0, 0, 0.2) 0 8px 16px -8px;
+  --border: rgba(96, 165, 250, 0.26);
+  --socials-bg: #ffffff09;
+  --card-bg: #ffffff09;
+  --pill-bg: #c084fc1f;
+  --pill-border: #5074f7;
+  --pill-bg-hover: rgba(255, 221, 108, 0.24);
+  --pill-bg-active: #5b2d881f;
 
+  --text-h: #f3f7ff;
+  --text: #aab3c5;
+  --text-muted: #6a8797;
+
+  --shadow: 0 18px 40px rgba(0, 73, 133, 0.08);
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
@@ -25,6 +25,20 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html[data-theme="dark"] {
+  --bg: #000405;
+  --border: rgba(94, 182, 255, 0.22);
+  --card-bg: #25808e;
+  --pill-bg: #785f11;
+  --pill-border: #082caf;
+  --pill-bg-hover: #4667df;
+  --pill-bg-active: #5074f7;
+  --text-h: #f2fbff;
+  --text: #d8f9fd;
+  --text-muted: #8cb4c0;
+  color-scheme: dark;
 }
 
 @media (max-width: 1024px) {
@@ -58,7 +72,7 @@ body {
 h1,
 h2 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-h);
 }
 

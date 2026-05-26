@@ -48,21 +48,24 @@ export function ProjectsSection({ items }: Props) {
       title="Projects"
       intro="Selected game development work across capstone, course, and jam projects."
     >
-      <div className={styles.projectFilters} role="group" aria-label="Project filters">
-        {FILTERS.map((filter) => {
-          const active = activeTags.includes(filter.key)
-          return (
-            <button
-              key={filter.key}
-              type="button"
-              className={active ? `${styles.filterChip} ${styles.active}` : styles.filterChip}
-              onClick={() => toggleTag(filter.key)}
-              aria-pressed={active}
-            >
-              {filter.label}
-            </button>
-          )
-        })}
+      <div className={styles.filterPanel}>
+        <span className={styles.filterLabel}>Filters:</span>
+        <div className={styles.projectFilters} role="group" aria-label="Project filters">
+          {FILTERS.map((filter) => {
+            const active = activeTags.includes(filter.key)
+            return (
+              <button
+                key={filter.key}
+                type="button"
+                className={active ? `${styles.filterChip} ${styles.pillActive}` : styles.filterChip}
+                onClick={() => toggleTag(filter.key)}
+                aria-pressed={active}
+              >
+                {filter.label}
+              </button>
+            )
+          })}
+        </div>
       </div>
 
       <div className={styles.projectList}>
@@ -100,7 +103,14 @@ export function ProjectsSection({ items }: Props) {
 
                 <div className={styles.projectTagRow}>
                   {item.tags.map((tag) => (
-                    <span key={tag} className={styles.projectTag}>
+                    <span
+                      key={tag}
+                      className={
+                        activeTags.includes(tag)
+                          ? `${styles.projectTag} ${styles.pillActive}`
+                          : styles.projectTag
+                      }
+                    >
                       {TAG_LABELS[tag]}
                     </span>
                   ))}
