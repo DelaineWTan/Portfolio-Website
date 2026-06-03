@@ -52,7 +52,7 @@ export const skillGroups: SkillGroup[] = [
     },
     {
         title: 'Development Tools',
-        items: ['React', 'Redux', 'Git', 'Node.js', 'Express', 'UnityEngine', 'Godot', 'Raylib', 'SDL3', 'XCode', 'Perforce', 'Ansible', 'Jira', 'Confluence', 'Trello'],
+        items: ['React', 'Redux', 'Git', 'Node.js', 'Express', 'Jest', 'Cypress', 'UnityEngine', 'Godot', 'Raylib', 'SDL3', 'XCode', 'Perforce', 'Ansible', 'Jira', 'Confluence', 'Trello'],
     },
     {
         title: 'Data Storage & Infrastructure',
