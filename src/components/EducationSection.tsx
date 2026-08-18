@@ -37,7 +37,14 @@ export function EducationSection({ items }: Props) {
                             <p className={styles.meta}>{item.dates}</p>
                         </div>
 
-                        <p className={styles.description}>{item.description}</p>
+                        {Array.isArray(item.description)
+                            ? item.description.map((line, i) => (
+                                <p key={i} className={styles.description} style={{ marginTop: i > 0 ? '10px' : 0 }}>
+                                    {line}
+                                </p>
+                            ))
+                            : <p className={styles.description}>{item.description}</p>
+                        }
                     </article>
                 ))}
             </div>

@@ -41,7 +41,7 @@ export type EducationItem = {
     dates: string
     qualification: string
     honours?: string
-    description: string
+    description: string | string[]
     link?: string
 }
 
@@ -72,9 +72,10 @@ export const experienceItems: ExperienceItem[] = [
         logo: '/images/logos/netskrt.png',
         logoAlt: 'Netskrt Systems logo',
         bullets: [
-            'Developed backend systems for CDN infrastructure using Python, Ansible, and Vector.',
-            'Automated ops tasks with Bash scripts and TMUX, with comprehensive documentation for reproducibility.',
-            'Worked with K8s, Kafka, Spark, Clickhouse, AWS S3/CEPH, and Postgres in a DevOps environment.',
+            'Trusted by my supervisor to open the company\'s annual international conference as the first presenter, delivering a D3.js visualization of the full production CDN infrastructure to an audience including C-suite executives and global employees.',
+            'During a critical infrastructure crisis, proactively took full ownership without being asked, working late nights and through the weekend to migrate terabytes of log data from failing HDFS storage, iterating from single-file transfers to parallel TMUX batching, then building Bash scripts and cron jobs to automate daily S3 backups.',
+            'Developed backend tooling using Python and Ansible in a production environment with Kubernetes, Kafka, ClickHouse, AWS S3, CEPH, and PostgreSQL, with day-to-day responsibilities centered on performance monitoring, debugging, and log analysis at terabyte scale.',
+            'Researched workflow orchestration solutions, built a functioning Argo Workflows prototype, and presented findings to the engineering team at a monthly meeting.',
         ],
     },
     {
@@ -84,8 +85,8 @@ export const experienceItems: ExperienceItem[] = [
         logo: '/images/logos/lighthouse.png',
         logoAlt: 'Lighthouse Labs logo',
         bullets: [
-            'Evaluated project submissions designed to teach students web development fundamentals (JavaScript, CSS, HTML5) and popular web development frameworks (i.e React, Redux, Express).',
-            'Invested in student success and provided thorough feedback and supporting resources.',
+            'Evaluated student projects across JavaScript, React, Redux, and Express, compressing technical expertise into feedback that helped students understand not just what was wrong but why, and how to improve.',
+            'Developed a reputation for thorough, constructive feedback that went beyond the rubric, reflecting an instinct for knowledge transfer and mentorship carried into every role since.',
         ],
     },
     {
@@ -95,9 +96,10 @@ export const experienceItems: ExperienceItem[] = [
         logo: '/images/logos/rivaltech.png',
         logoAlt: 'Rival Technologies logo',
         bullets: [
-            'Used React, Redux, Express, and SQL to maintain an enterprise market research web app.',
-            'Worked flexibly, learning the basics of countless technologies along the way, establishing a reputation for adaptability and persistence.',
-            'Coordinated closely with upper management, DevOps, QA, UX and other engineering teams to maintain and improve a market research web application using the AGILE process.',
+            'Hired before finishing my bootcamp after making a strong enough impression at a job fair speed interview that two team leads reached out immediately after to continue the conversation, eventually becoming lasting mentors and referrals.',
+            'Progressed from frontend engineer to full stack contributor in under two years, gaining independence on important features remarkably quickly, including pair programming with senior engineers who became lasting mentors.',
+            'Sole engineer to successfully debug a critical piece of legacy software that predated the entire current team, with no documentation and no colleagues who remembered the codebase, methodically working through unfamiliar code until the issue was resolved.',
+            'Maintained and extended an enterprise SaaS market research web application using React, Redux, Express, and SQL, coordinating across DevOps, QA, UX, and engineering teams following Agile processes.',
         ],
     },
 ]
@@ -107,18 +109,22 @@ export const educationItems: EducationItem[] = [
         company: 'British Columbia Institute of Technology',
         dates: 'Sep 2023 — Apr 2026',
         qualification: 'BSc in Applied Computer Science - Game Development Option',
-        honours: 'With Distinction',
-        description:
-            'Studied game development through advanced software engineering, mathematics, physics, graphics, and systems-focused computing, with hands-on experience building interactive applications and game projects.',
+        honours: 'With Distinction | GPA 91',
+        description: [
+            'Studied game development through advanced software engineering, mathematics, physics, graphics, and systems-focused computing. Coursework highlights include Advanced Games Architecture, Advanced Games Programming Techniques, Artificial Intelligence, Games Design Fundamentals, Project Management, and Interaction Design.',
+            'Naturally assumed project leadership across every group assignment, scoping work, setting incremental milestones, and investing in teammates who were struggling, consistently delivering smoothly while most other groups scrambled under pressure.',
+        ],
         link: 'https://www.bcit.ca/programs/applied-computer-science-games-development-option-bachelor-of-science-full-time-867absc/',
     },
     {
         company: 'British Columbia Institute of Technology',
         dates: 'Sep 2021 — Apr 2023',
-        qualification: 'Computer Systems Technology Diploma',
-        honours: 'With Distinction',
-        description:
-            'Built a strong foundation in software development, computer systems, algorithms, databases, networking, and applied programming through intensive project-based coursework.',
+        qualification: 'Computer Systems Technology Diploma - Predictive Analytics Option',
+        honours: 'With Distinction | GPA 88',
+        description: [
+            'Built a strong foundation in software development, computer systems, algorithms, databases, networking, and applied programming.',
+            'Completed a three-course Predictive Analytics specialization with near-perfect grades: Predictive Modelling (100%), Predictive Machine Learning (100%), and Big Data Analytics Methods (98%), covering SVMs, neural networks, CNNs, LSTMs, time series analysis, and PySpark.',
+        ],
         link: 'https://www.bcit.ca/programs/computer-systems-technology-diploma-full-time-5500dipma/',
     },
 ]
@@ -131,9 +137,10 @@ export const projectItems: ProjectItem[] = [
         link: 'https://delainetan.itch.io/syrup-saga',
         linkLabel: 'Play on itch.io',
         description: [
-            'Ongoing capstone project with regular updates. Solo-developed adventure RPG on a custom C++17 (Raylib) ECS engine including rendering, physics, collision, combat, AI, and UI systems built from scratch.',
-            'Features procedural map graph generation, state machine-driven enemy and companion AI, combo-based combat, and a data-driven JSON entity pipeline.',
-            'Playtest key: alphatest'
+            'Solo-built a complete adventure RPG and a custom C++17 game engine simultaneously from scratch, with no off-the-shelf systems to lean on — producing a result that held its own against and in several respects surpassed classmates\' projects built on Unity and Unreal.',
+            'Engine covers rendering, physics, collision, a custom ECS architecture, state machine AI for enemies and companions, real-time action combat, rule-based randomized map graph generation, and a full custom UI suite built without any framework.',
+            'All game content including enemy types, quests, and class skills defined in JSON and hot-loaded through typed registries, enabling zero-recompile iteration across a data pipeline mature enough to scale.',
+            'Playtest key: alphatest',
         ],
         tags: ['custom-engine', 'cpp', 'raylib', 'solo'],
         thumbnail: '/images/projects/syrup-saga.png',
@@ -146,8 +153,8 @@ export const projectItems: ProjectItem[] = [
         link: 'https://delainetan.itch.io/last-harvest',
         linkLabel: 'Play on itch.io',
         description: [
-            'Co-developed a 2D isometric base defense RTS in C++20 and SDL3 with a 3-person team on a custom ECS engine.',
-            'Owned UI, scene management, resource management, and a placement system refactor that eliminated mode-switching crashes.',
+            'Applied engine architecture knowledge from Syrup Saga to rapidly bootstrap a custom C++20/SDL3 ECS engine for a completely different genre — a 2D isometric base defense RTS with distinct control schemes and camera systems.',
+            'Owned UI, scene management, resource management, and led a placement system refactor that eliminated a class of mode-switching crashes.',
         ],
         tags: ['custom-engine', 'cpp', 'sdl3', 'team'],
         thumbnail: '/images/projects/last-harvest.png',
@@ -160,9 +167,8 @@ export const projectItems: ProjectItem[] = [
         link: 'https://delainetan.itch.io/immunity-reborn',
         linkLabel: 'Play on itch.io',
         description: [
-            'Engineered core gameplay systems for a 3D survival action RPG in Unity, including enemy AI, wave spawning, progression, and combat balance.',
-            'Designed and balanced 5 levels across multiple difficulties, with each level tied to its own background music and scripted enemy spawn sequence.',
-            'Handled level design, game balance, and the full audio/feedback pass, including SFX, VFX, and music integration.',
+            'Shipped a fully complete 3D survival action RPG over 4 months with a 3-person team, delivering multiple enemy types, 4 bosses, and 5 fully fleshed levels — having entered the project with almost no prior Unity experience.',
+            'Engineered core gameplay systems including enemy AI, wave spawning, and progression, designed and balanced all levels across multiple difficulties with scripted enemy sequences, and handled the full audio and VFX pass.',
         ],
         tags: ['unity', 'team'],
         thumbnail: '/images/projects/immunity-reborn.png',
@@ -172,7 +178,7 @@ export const projectItems: ProjectItem[] = [
         name: 'Ori and the Blue Ocean',
         dates: '2026',
         company: 'Gone Fishing Game Jam 2026',
-        description: ['2D fishing game; worked on sound and gameplay systems.'],
+        description: ['2D fishing game completed in 24 hours; contributed sound design and gameplay systems.'],
         tags: ['game-jam', 'godot', 'team', 'playable-web'],
         thumbnail: '/images/projects/ori-and-the-blue-ocean.png',
         thumbnailAlt: 'Ori and the Blue Ocean project screenshot',
@@ -181,7 +187,7 @@ export const projectItems: ProjectItem[] = [
         name: 'Sloshed Simian',
         dates: '2026',
         company: 'Global Game Jam 2026',
-        description: ['Top-down adventure game; sole programmer plus game designer.'],
+        description: ['Top-down adventure game completed in 48 hours; sole programmer and primary creative driver, working alongside experienced industry professionals in game design and UI.'],
         tags: ['game-jam', 'unity', 'solo', 'playable-web'],
         thumbnail: '/images/projects/sloshed-simian.png',
         thumbnailAlt: 'Sloshed Simian project screenshot',
@@ -190,7 +196,7 @@ export const projectItems: ProjectItem[] = [
         name: 'BattleGhoti',
         dates: '2025',
         company: 'Global Game Jam 2025',
-        description: ['Fishing gacha battler with collection gallery and tug-of-war battles; game designer, systems architecture, and gameplay balance.'],
+        description: ['Fishing gacha battler with collection gallery and tug-of-war battles completed in 48 hours; led systems architecture, gameplay balance, and game design.'],
         tags: ['game-jam', 'unity', 'team', 'playable-web'],
         thumbnail: '/images/projects/battleghoti.png',
         thumbnailAlt: 'BattleGhoti project screenshot',
@@ -199,7 +205,7 @@ export const projectItems: ProjectItem[] = [
         name: 'Hakuna Banana',
         dates: '2024',
         company: 'Global Game Jam 2024',
-        description: ['Humorous 2D turn-based platformer; implemented state machine, turn manager, and gameplay polish.'],
+        description: ['Humorous 2D turn-based platformer completed in 48 hours; implemented state machine, turn manager, and gameplay polish while contributing to game design.'],
         tags: ['game-jam', 'unity', 'team', 'playable-web'],
         thumbnail: '/images/projects/hakuna-banana.png',
         thumbnailAlt: 'Hakuna Banana project screenshot',
